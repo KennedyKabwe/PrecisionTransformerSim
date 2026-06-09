@@ -1,0 +1,47 @@
+# ── Build output ──────────────────────────────────────────────────────────────
+# The build/ folder is generated — never commit it.
+# Every developer generates their own from the source files.
+build/
+
+# ── Compiled binaries & object files ─────────────────────────────────────────
+*.exe
+*.o
+*.obj
+*.a
+*.lib
+*.out
+
+# ── CMake internal files ──────────────────────────────────────────────────────
+# These are auto-generated during cmake configure — not part of your source.
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+
+# compile_commands.json is useful to KEEP for VSCode IntelliSense — see below.
+# If you want to commit it, remove the next line.
+# compile_commands.json
+
+# ── OS junk ───────────────────────────────────────────────────────────────────
+.DS_Store        # macOS folder metadata
+Thumbs.db        # Windows thumbnail cache
+desktop.ini
+
+# ── Editor swap files ─────────────────────────────────────────────────────────
+*.swp
+*.swo
+*~
+
+# ── Python layer (coming later) ───────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# NOTE: .vscode/ is intentionally NOT ignored.
+# We commit tasks.json, launch.json, settings.json so any collaborator
+# gets the correct build and debug configuration automatically.
+
+#code workplace settings
+*.code-workspace
