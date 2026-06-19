@@ -1,7 +1,7 @@
 #pragma once
 
-#include "TransformerParams.h"
-#include "TransformerResults.h"
+#include "transformer/TransformerParams.h"
+#include "transformer/TransformerResults.h"
 
 /**
  * @file   CircuitSolver.h

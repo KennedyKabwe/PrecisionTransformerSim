@@ -1,6 +1,6 @@
 #pragma once
 
-#include "TransformerParams.h"
+#include "transformer/TransformerParams.h"
 #include <map>
 #include <string>
 
