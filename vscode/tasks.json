@@ -1,0 +1,104 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // ── TASK 1: Configure ───────────────────────────────────────────
+            // Runs cmake to generate the MinGW Makefiles inside build/
+            // -S .              : source is the current folder (has CMakeLists.txt)
+            // -B build          : put all generated files in build/
+            // -G "MinGW Makefiles" : use MinGW's make, not MSVC's nmake
+            // -DCMAKE_BUILD_TYPE=Debug : build with debug symbols
+            // -DCMAKE_EXPORT_COMPILE_COMMANDS=ON : generates compile_commands.json
+            //   (VSCode IntelliSense reads this for accurate autocomplete)
+            "label": "CMake: Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S", ".",
+                "-B", "build",
+                "-G", "MinGW Makefiles",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            // ── TASK 2: Build ───────────────────────────────────────────────
+            // Compiles all source files and links the .exe
+            // --parallel : use all CPU cores to compile faster
+            "label": "CMake: Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "build",
+                "--parallel"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true    // Ctrl+Shift+B runs THIS task
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": "$gcc"  // VSCode parses g++ errors and shows them inline
+        },
+        {
+            // ── TASK 3: Configure + Build (full rebuild from scratch) ───────
+            "label": "CMake: Configure + Build",
+            "dependsOn": ["CMake: Configure", "CMake: Build"],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        {
+            // ── TASK 4: Quick run — Mode 1 (Ideal) ─────────────────────────
+            "label": "Run: Mode 1 (Ideal)",
+            "type": "shell",
+            "command": "./build/bin/transformer_sim.exe",
+            "args": [
+                "--mode", "1",
+                "--V1",   "230",
+                "--f",    "50",
+                "--N1",   "200",
+                "--N2",   "100",
+                "--RL",   "10"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "group": "test",
+            "presentation": { "reveal": "always", "panel": "shared" },
+            "problemMatcher": []
+        },
+        {
+            // ── TASK 5: Quick run — Mode 4 (Practical, full model) ──────────
+            "label": "Run: Mode 4 (Practical)",
+            "type": "shell",
+            "command": "./build/bin/transformer_sim.exe",
+            "args": [
+                "--mode", "4",
+                "--V1",   "230",  "--f",  "50",
+                "--N1",   "200",  "--N2", "100",
+                "--RL",   "10",
+                "--Rc",   "500",  "--Xm", "200",
+                "--R1",   "0.5",  "--R2", "0.3",
+                "--X1",   "1.2",  "--X2", "0.8"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "group": "test",
+            "presentation": { "reveal": "always", "panel": "shared" },
+            "problemMatcher": []
+        }
+    ]
+}
