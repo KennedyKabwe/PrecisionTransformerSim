@@ -78,7 +78,7 @@ transformer_sim/
 ## Roadmap
 
 - [x] Project scaffold and build system
-- [ ] C++ computation engine (all 4 modes)
+- [x] C++ computation engine (all 4 modes)
 - [ ] Python bridge (subprocess + JSON)
 - [ ] Python GUI (tkinter)
 - [ ] Visualiser — transformer schematic
