@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(TransformerSim
+project(PrecisionTransformerSim
     VERSION     1.0.0
     DESCRIPTION "Single-Phase Transformer Educational Simulator"
     LANGUAGES   CXX
