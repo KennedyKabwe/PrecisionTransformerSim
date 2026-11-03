@@ -262,8 +262,8 @@ Developed and tested on Windows 10 with MSYS2 g++.
 ### 1. Get the code
 
 ```bash
-git clone https://github.com/<your-username>/<repository-name>.git
-cd <repository-name>
+git clone https://github.com/KennedyKabwe/PrecisionTransformerSim.git
+cd <PrecisionTransformerSim >
 ```
 
 ### 2. Build the C++ engine (MSYS2 MINGW64 terminal)
@@ -425,7 +425,7 @@ Commit messages follow the convention `feat:`, `fix:`, `docs:`, `chore:`, `test:
 
 ## License
 
-Released under the MIT License. See [LICENSE.txt](LICENSE.txt).
+Released under the MIT License. See [LICENSE](LICENSE).
 
 ---
 
